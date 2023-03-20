@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
@@ -14,30 +15,43 @@ use App\Models\Listing;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-//Show All
+//LISTINGS:
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//Show All Lists
 Route::get('/', [ListingController::class, 'index']);
 
-//Create
+//Create List
 Route::get('/listings/create',[ListingController::class,'create']);
 
 
-//Store
+//Store List
 Route::post('/listings',[ListingController::class,'store']);
 
-//Edit
+//Edit List
 Route::get('/listings/{listing}/edit',[ListingController::class,'edit']);
 
-//Update
+//Update List
 Route::put('/listings/{listing}',[ListingController::class,'update']);
-
-
-
-
-
-
-
-
-
-
+//Delete List
+Route::delete('/listings/{listing}',[ListingController::class,'delete']);
+//Show List
 Route::get('/listings/{listing}',[ListingController::class,'show']);
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//Users
+//+++++++++++++++++++++++++++++++++++++++++++++++++
+//Register Form
+Route::get('/register',[UserController::class,'create']);
+//Register User
+Route::post('/register',[UserController::class,'store']);
+
+
+
+
+
+
+
+
+
+
+

@@ -66,4 +66,9 @@ class ListingController extends Controller
         return redirect("/listings/{$listing->id}")->with('message', 'Your Listing has been edited.');
 
     }
+    public function delete(Listing $listing){
+        $listing->delete();
+        return redirect("/")->with('message', 'Your Listing has been deleted.');
+
+    }
 }
