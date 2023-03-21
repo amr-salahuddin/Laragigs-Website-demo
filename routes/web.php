@@ -43,11 +43,16 @@ Route::get('/listings/{listing}',[ListingController::class,'show']);
 //Register Form
 Route::get('/register',[UserController::class,'create']);
 //Register User
-Route::post('/register',[UserController::class,'store']);
+Route::post('/users',[UserController::class,'store']);
+
+Route::post('/logout',[UserController::class,'logout']);
 
 
+//Login Form
+Route::get('/login',[UserController::class,'login']);
 
-
+//Login Register
+Route::post('/users/authenticate',[UserController::class,'authenticate']);
 
 
 
